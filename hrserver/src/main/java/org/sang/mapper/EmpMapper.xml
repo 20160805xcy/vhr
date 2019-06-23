@@ -102,10 +102,31 @@
         </association>
     </resultMap>
     <select id="getEmployeeByPage" resultMap="BaseResultMap">
-        select e.*,jl.`id` as jlid,jl.`name` as jlname,jl.`titleLevel` as jlTitleLevel,d.`id` as did,d.`name` as
-        dname,n.`id` as nid,n.`name` as nname,p.`id` as pid,p.`name` as pname,ps.`id` as psid,ps.`name` as psname from
-        employee e,joblevel jl,department d,nation n,position p,politicsstatus ps where e.`posId`=p.`id` and
-        e.`jobLevelId`=jl.`id` and e.`departmentId`=d.id and e.`nationId`=n.`id` and e.`politicId`=ps.`id` and e.`name`
+
+
+
+
+        SELECT
+        e.*,
+        n.`id` AS nid,
+        n.`name` AS nname,
+        p.`id` AS pid,
+        p.`name` AS pname,
+        ps.`id` AS psid,
+        ps.`name` AS psname
+        FROM
+        employee e,
+        nation n,
+        position p,
+        politicsstatus ps
+        WHERE
+        e.`posId` = p.`id`
+        AND e.`nationId` = n.`id`
+        AND e.`politicId` = ps.`id`
+
+
+
+        AND e.`name`
         like concat('%',#{keywords},'%')
         <if test="engageForm!=null and engageForm!=''">
             AND e.engageForm=#{engageForm}

@@ -39,7 +39,7 @@
           </el-button>
           <el-button type="primary" size="mini" icon="el-icon-plus"
                      @click="showAddEmpView">
-            添加员工
+            个人信息登记
           </el-button>
         </div>
       </el-header>
@@ -83,6 +83,7 @@
                     </el-option>
                   </el-select>
                 </el-col>
+                <!--
                 <el-col :span="4">
                   职称:
                   <el-select v-model="emp.jobLevelId" style="width: 130px" size="mini" placeholder="请选择职称">
@@ -94,6 +95,8 @@
                     </el-option>
                   </el-select>
                 </el-col>
+                -->
+                <!--
                 <el-col :span="7">
                   聘用形式:
                   <el-radio-group v-model="emp.engageForm">
@@ -101,8 +104,18 @@
                     <el-radio style="margin-left: 15px" label="劳务合同">劳务合同</el-radio>
                   </el-radio-group>
                 </el-col>
+                -->
+
+                <el-col :span="7">
+                  <el-button size="mini" @click="cancelSearch">取消</el-button>
+                  <el-button icon="el-icon-search" type="primary" size="mini" @click="searchEmp">搜索</el-button>
+                </el-col>
+
               </el-row>
-              <el-row style="margin-top: 10px">
+
+
+              <!--<el-row style="margin-top: 10px">-->
+                <!--
                 <el-col :span="5">
                   所属部门:
                   <el-popover
@@ -118,6 +131,8 @@
                     </div>
                   </el-popover>
                 </el-col>
+                -->
+                <!--
                 <el-col :span="10">
                   入职日期:
                   <el-date-picker
@@ -131,11 +146,14 @@
                     end-placeholder="结束日期">
                   </el-date-picker>
                 </el-col>
+                -->
+              <!--
                 <el-col :span="5" :offset="4">
                   <el-button size="mini" @click="cancelSearch">取消</el-button>
                   <el-button icon="el-icon-search" type="primary" size="mini" @click="searchEmp">搜索</el-button>
                 </el-col>
               </el-row>
+              -->
             </div>
           </transition>
           <el-table
@@ -158,12 +176,14 @@
               label="姓名"
               width="90">
             </el-table-column>
+            <!--
             <el-table-column
               prop="workID"
               width="85"
               align="left"
               label="工号">
             </el-table-column>
+            -->
             <el-table-column
               prop="gender"
               label="性别"
@@ -217,40 +237,50 @@
               align="left"
               label="联系地址">
             </el-table-column>
+            <!--
             <el-table-column
               prop="department.name"
               align="left"
               width="100"
               label="所属部门">
             </el-table-column>
+            -->
             <el-table-column
               width="100"
               align="left"
               prop="position.name"
               label="职位">
             </el-table-column>
+            <!--
             <el-table-column
               prop="jobLevel.name"
               width="100"
               align="left"
               label="职称">
             </el-table-column>
+            -->
+            <!--
             <el-table-column
               prop="engageForm"
               label="聘用形式">
             </el-table-column>
+            -->
+            <!--
             <el-table-column
               width="85"
               align="left"
               label="入职日期">
               <template slot-scope="scope">{{ scope.row.beginDate | formatDate}}</template>
             </el-table-column>
+
             <el-table-column
               width="85"
               align="left"
               label="转正日期">
               <template slot-scope="scope">{{ scope.row.conversionTime | formatDate}}</template>
             </el-table-column>
+            -->
+            <!--
             <el-table-column
               width="95"
               align="left"
@@ -269,6 +299,7 @@
               label="合同期限">
               <template slot-scope="scope">{{ scope.row.contractTerm}}年</template>
             </el-table-column>
+            -->
             <el-table-column
               align="left"
               prop="tiptopDegree"
@@ -277,14 +308,16 @@
             <el-table-column
               fixed="right"
               label="操作"
-              width="195">
+              width="110">
               <template slot-scope="scope">
                 <el-button @click="showEditEmpView(scope.row)" style="padding: 3px 4px 3px 4px;margin: 2px"
                            size="mini">编辑
                 </el-button>
+                <!--
                 <el-button style="padding: 3px 4px 3px 4px;margin: 2px" type="primary"
                            size="mini">查看高级资料
                 </el-button>
+                -->
                 <el-button type="danger" style="padding: 3px 4px 3px 4px;margin: 2px" size="mini"
                            @click="deleteEmp(scope.row)">删除
                 </el-button>
@@ -417,6 +450,7 @@
                 </el-form-item>
               </div>
             </el-col>
+            <!--
             <el-col :span="5">
               <div>
                 <el-form-item label="职称:" prop="jobLevelId">
@@ -431,6 +465,8 @@
                 </el-form-item>
               </div>
             </el-col>
+            -->
+            <!--
             <el-col :span="6">
               <div>
                 <el-form-item label="所属部门:" prop="departmentId">
@@ -449,6 +485,7 @@
                 </el-form-item>
               </div>
             </el-col>
+            -->
             <el-col :span="7">
               <div>
                 <el-form-item label="电话号码:" prop="phone">
@@ -459,6 +496,7 @@
             </el-col>
           </el-row>
           <el-row>
+            <!--
             <el-col :span="6">
               <div>
                 <el-form-item label="工号:" prop="workID">
@@ -467,6 +505,7 @@
                 </el-form-item>
               </div>
             </el-col>
+            -->
             <el-col :span="5">
               <div>
                 <el-form-item label="学历:" prop="tiptopDegree">
@@ -499,6 +538,7 @@
             </el-col>
           </el-row>
           <el-row>
+            <!--
             <el-col :span="6">
               <div>
                 <el-form-item label="入职日期:" prop="beginDate">
@@ -527,6 +567,8 @@
                 </el-form-item>
               </div>
             </el-col>
+            -->
+            <!--
             <el-col :span="6">
               <div>
                 <el-form-item label="合同起始日期:" prop="beginContract">
@@ -555,6 +597,7 @@
                 </el-form-item>
               </div>
             </el-col>
+            -->
           </el-row>
           <el-row>
             <el-col :span="8">
@@ -565,6 +608,7 @@
                 </el-form-item>
               </div>
             </el-col>
+            <!--
             <el-col :span="8">
               <div>
                 <el-form-item label="聘用形式:" prop="engageForm">
@@ -575,6 +619,7 @@
                 </el-form-item>
               </div>
             </el-col>
+            -->
             <el-col :span="8">
               <div>
                 <el-form-item label="婚姻状况:" prop="wedlock">
@@ -642,22 +687,22 @@
           email: '',
           phone: '',
           address: '',
-          departmentId: '',
+          // departmentId: '',
           departmentName: '所属部门...',
-          jobLevelId: '',
+          // jobLevelId: '',
           posId: '',
-          engageForm: '',
+          // engageForm: '',
           tiptopDegree: '',
           specialty: '',
           school: '',
-          beginDate: '',
+          // beginDate: '',
           workState: '',
-          workID: '',
+          // workID: '',
           contractTerm: '',
-          conversionTime: '',
+          // conversionTime: '',
           notWorkDate: '',
-          beginContract: '',
-          endContract: '',
+          // beginContract: '',
+          // endContract: '',
           workAge: ''
         },
         rules: {
@@ -684,18 +729,18 @@
           }],
           phone: [{required: true, message: '必填:电话号码', trigger: 'blur'}],
           address: [{required: true, message: '必填:联系地址', trigger: 'blur'}],
-          departmentId: [{required: true, message: '必填:部门', trigger: 'change'}],
-          jobLevelId: [{required: true, message: '必填:职称', trigger: 'change'}],
+          // departmentId: [{required: true, message: '必填:部门', trigger: 'change'}],
+          // jobLevelId: [{required: true, message: '必填:职称', trigger: 'change'}],
           posId: [{required: true, message: '必填:职位', trigger: 'change'}],
-          engageForm: [{required: true, message: '必填:聘用形式', trigger: 'blur'}],
+          // engageForm: [{required: true, message: '必填:聘用形式', trigger: 'blur'}],
           tiptopDegree: [{required: true, message: '必填:最高学历', trigger: 'change'}],
           specialty: [{required: true, message: '必填:专业', trigger: 'blur'}],
-          workID: [{required: true, message: '必填:工号', trigger: 'blur'}],
+          // workID: [{required: true, message: '必填:工号', trigger: 'blur'}],
           school: [{required: true, message: '必填:毕业院校', trigger: 'blur'}],
-          beginDate: [{required: true, message: '必填:入职日期', trigger: 'blur'}],
-          conversionTime: [{required: true, message: '必填:转正日期', trigger: 'blur'}],
-          beginContract: [{required: true, message: '必填:合同起始日期', trigger: 'blur'}],
-          endContract: [{required: true, message: '必填:合同终止日期', trigger: 'blur'}],
+          // beginDate: [{required: true, message: '必填:入职日期', trigger: 'blur'}],
+          // conversionTime: [{required: true, message: '必填:转正日期', trigger: 'blur'}],
+          // beginContract: [{required: true, message: '必填:合同起始日期', trigger: 'blur'}],
+          // endContract: [{required: true, message: '必填:合同终止日期', trigger: 'blur'}],
           workAge: [{required: true, message: '必填:工龄', trigger: 'blur'}]
         }
       };
@@ -791,7 +836,7 @@
       loadEmps(){
         var _this = this;
         this.tableLoading = true;
-        this.getRequest("/employee/basic/emp?page=" + this.currentPage + "&size=10&keywords=" + this.keywords + "&politicId=" + this.emp.politicId + "&nationId=" + this.emp.nationId + "&posId=" + this.emp.posId + "&jobLevelId=" + this.emp.jobLevelId + "&engageForm=" + this.emp.engageForm + "&departmentId=" + this.emp.departmentId + "&beginDateScope=" + this.beginDateScope).then(resp=> {
+        this.getRequest("/employee/basic/emp?page=" + this.currentPage + "&size=10&keywords=" + this.keywords + "&politicId=" + this.emp.politicId + "&nationId=" + this.emp.nationId + "&posId=" + this.emp.posId + "&beginDateScope=" + this.beginDateScope).then(resp=> {
           this.tableLoading = false;
           if (resp && resp.status == 200) {
             var data = resp.data;
@@ -848,13 +893,13 @@
       },
       handleNodeClick(data) {
         this.emp.departmentName = data.name;
-        this.emp.departmentId = data.id;
+        // this.emp.departmentId = data.id;
         this.showOrHidePop = false;
         this.depTextColor = '#606266';
       },
       handleNodeClick2(data) {
         this.emp.departmentName = data.name;
-        this.emp.departmentId = data.id;
+        // this.emp.departmentId = data.id;
         this.showOrHidePop2 = false;
         this.depTextColor = '#606266';
       },
@@ -868,7 +913,7 @@
             _this.deps = data.deps;
             _this.positions = data.positions;
             _this.joblevels = data.joblevels;
-            _this.emp.workID = data.workID;
+            // _this.emp.workID = data.workID;
           }
         })
       },
@@ -877,15 +922,15 @@
         this.dialogTitle = "编辑员工";
         this.emp = row;
         this.emp.birthday = this.formatDate(row.birthday);
-        this.emp.conversionTime = this.formatDate(row.conversionTime);
-        this.emp.beginContract = this.formatDate(row.beginContract);
-        this.emp.endContract = this.formatDate(row.endContract);
-        this.emp.beginDate = this.formatDate(row.beginDate);
+        // this.emp.conversionTime = this.formatDate(row.conversionTime);
+        // this.emp.beginContract = this.formatDate(row.beginContract);
+        // this.emp.endContract = this.formatDate(row.endContract);
+        // this.emp.beginDate = this.formatDate(row.beginDate);
         this.emp.nationId = row.nation.id;
         this.emp.politicId = row.politicsStatus.id;
-        this.emp.departmentId = row.department.id;
-        this.emp.departmentName = row.department.name;
-        this.emp.jobLevelId = row.jobLevel.id;
+        // this.emp.departmentId = row.department.id;
+        // this.emp.departmentName = row.department.name;
+        // this.emp.jobLevelId = row.jobLevel.id;
         this.emp.posId = row.position.id;
 //        delete this.emp.department;
 //        delete this.emp.jobLevel;
@@ -897,7 +942,7 @@
         this.dialogVisible = true;
       },
       showAddEmpView(){
-        this.dialogTitle = "添加员工";
+        this.dialogTitle = "个人信息登记";
         this.dialogVisible = true;
         var _this = this;
         this.getRequest("/employee/basic/maxWorkID").then(resp=> {
@@ -919,22 +964,22 @@
           email: '',
           phone: '',
           address: '',
-          departmentId: '',
+          // departmentId: '',
           departmentName: '所属部门...',
-          jobLevelId: '',
+          // jobLevelId: '',
           posId: '',
           engageForm: '',
           tiptopDegree: '',
           specialty: '',
           school: '',
-          beginDate: '',
+          // beginDate: '',
           workState: '',
-          workID: '',
+          // workID: '',
           contractTerm: '',
-          conversionTime: '',
+          // conversionTime: '',
           notWorkDate: '',
-          beginContract: '',
-          endContract: '',
+          // beginContract: '',
+          // endContract: '',
           workAge: ''
         }
       }
