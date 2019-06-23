@@ -36,10 +36,10 @@ public class EmpService {
     }
 
     public int addEmp(Employee employee) {
-        Date beginContract = employee.getBeginContract();
-        Date endContract = employee.getEndContract();
-        Double contractTerm = (Double.parseDouble(yearFormat.format(endContract)) - Double.parseDouble(yearFormat.format(beginContract))) * 12 + Double.parseDouble(monthFormat.format(endContract)) - Double.parseDouble(monthFormat.format(beginContract));
-        employee.setContractTerm(Double.parseDouble(decimalFormat.format(contractTerm / 12)));
+        //Date beginContract = employee.getBeginContract();
+        //Date endContract = employee.getEndContract();
+        //Double contractTerm = (Double.parseDouble(yearFormat.format(endContract)) - Double.parseDouble(yearFormat.format(beginContract))) * 12 + Double.parseDouble(monthFormat.format(endContract)) - Double.parseDouble(monthFormat.format(beginContract));
+        //employee.setContractTerm(Double.parseDouble(decimalFormat.format(contractTerm / 12)));
         return empMapper.addEmp(employee);
     }
 
@@ -78,10 +78,11 @@ public class EmpService {
     }
 
     public int updateEmp(Employee employee) {
-        Date beginContract = employee.getBeginContract();
-        Date endContract = employee.getEndContract();
-        Double contractTerm = (Double.parseDouble(yearFormat.format(endContract)) - Double.parseDouble(yearFormat.format(beginContract))) * 12 + Double.parseDouble(monthFormat.format(endContract)) - Double.parseDouble(monthFormat.format(beginContract));
-        employee.setContractTerm(Double.parseDouble(decimalFormat.format(contractTerm / 12)));
+        //Date beginContract = employee.getBeginContract();
+        //Date endContract = employee.getEndContract();
+        //Double contractTerm = (Double.parseDouble(yearFormat.format(endContract)) - Double.parseDouble(yearFormat.format(beginContract))) * 12 + Double.parseDouble(monthFormat.format(endContract)) - Double.parseDouble(monthFormat.format(beginContract));
+        //employee.setContractTerm(Double.parseDouble(decimalFormat.format(contractTerm / 12)));
+        employee.setContractTerm(Double.parseDouble(decimalFormat.format(12 / 12))); //1年
         return empMapper.updateEmp(employee);
     }
 
