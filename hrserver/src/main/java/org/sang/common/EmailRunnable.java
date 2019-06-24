@@ -30,8 +30,8 @@ public class EmailRunnable implements Runnable {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setTo(employee.getEmail());
-            helper.setFrom("1510161612@qq.com");
-            helper.setSubject("XXX集团：通知");
+            helper.setFrom("13717736@qq.com");
+            helper.setSubject("深圳市华富洋供应链面试通知");
             Context ctx = new Context();
             ctx.setVariable("name", employee.getName());
             ctx.setVariable("workID", employee.getWorkID());

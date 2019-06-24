@@ -6,36 +6,13 @@
 </head>
 <body>
 <p>你好，
-    <span th:text="${name}"></span>童鞋，欢迎加入XXX大家庭！您的入职信息如下：</p>
-<table border="1" cellspacing="0">
-    <tr>
-        <td><strong style="color: #F00">工号</strong></td>
-        <td th:text="${workID}"></td>
-    </tr>
-    <tr>
-        <td><strong style="color: #F00">合同期限</strong></td>
-        <td th:text="${contractTerm}+'年'"></td>
-    </tr>
-    <tr>
-        <td><strong style="color: #F00">合同起始日期</strong></td>
-        <td th:text="${#dates.format(beginContract, 'yyyy-MM-dd')}"></td>
-    </tr>
-    <tr>
-        <td><strong style="color: #F00">合同截至日期</strong></td>
-        <td th:text="${#dates.format(endContract, 'yyyy-MM-dd')}"></td>
-    </tr>
-    <tr>
-        <td><strong style="color: #F00">所属部门</strong></td>
-        <td th:text="${departmentName}"></td>
-    </tr>
-    <tr>
-        <td><strong style="color: #F00">职位</strong></td>
-        <td th:text="${posName}"></td>
-    </tr>
-</table>
+    <span th:text="${name}"></span>童鞋,欢迎来参加华富洋的面试! 请好好发挥,华富洋供应链大家庭欢迎您的加入.</p>
+
+您面试的职位是<strong><span th:text="${posName}"></span></strong>.
+
 <p>
     <strong style="color: #F00; font-size: 24px;">
-        希望在未来的日子里，携手共进!
+        希望在接下环节,您能所想披靡!
     </strong>
 </p>
 </body>
